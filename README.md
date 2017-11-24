@@ -8,7 +8,7 @@ So, I have created a basic template on how the tabs in our page will look.
 Instead of writing all our code in a single server.R and ui.R file, it will be much easier if we keep all data-wrangling and calculations
 for **each tab** in a different R file, and then refer to it in our server and ui files.
 
-Also, creating separate branches here will be really helpful- if one of us uploads a code which is broken, it would not affect the other person's progress. I've already created one feature/layout branch, which has the server and ui file. Keep the naming convention like `feature/<tab name>` so that all the branches are grouped together in git (looks cleaner :p)
+Also, creating separate branches here will be really helpful- if one of us uploads a code which is broken, it would not affect the other person's progress (Make sure you branch from master and not someone else's branch). I've already created one `feature/layout branch`, which has the server and ui file. Keep the naming convention like `feature/<tab name>` so that all the branches are grouped together in git (looks cleaner :p)
 
 Dividing work:
 Each one of us should work on **atleast** one tab, therefore must create one R file which deals with one of the issues. I (Aman) will take care of the main logic files (ui.R and server.R), so don't worry about that.
