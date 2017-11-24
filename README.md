@@ -4,7 +4,7 @@ and also compare how different pro-players have performed at the big stage. The 
 
 ## Remove this later:
 
-So, I have created a basic template on how the tabs in our page will look.
+So, I have created a basic template on how the tabs in our page will look. I have also upload the data, in the `data/` folder (bunch of csv files).
 Instead of writing all our code in a single server.R and ui.R file, it will be much easier if we keep all data-wrangling and calculations
 for **each tab** in a different R file, and then refer to it in our server and ui files.
 
