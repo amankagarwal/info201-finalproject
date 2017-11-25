@@ -48,7 +48,7 @@ higherRedWinrate <- function(player1, player2, role) {
   return(tmp)
 }
 
-makePlot <- function(role, player, player2) {
+makePlot <- function(role, player1, player2) {
   tmp <- winrateRole(role)
   players <- c(player1, player2)
   tmp <- tmp %>%
