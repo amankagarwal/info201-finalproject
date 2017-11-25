@@ -10,7 +10,6 @@ league.data <- league.data %>%
 
 # This function groups the data by the role specified, and calculates the win rate for each player
 # both at the blue side and the red side.
-
 winrateRole <- function(role) {
   blue.role <- paste0("blue", role)
   blue <- league.data %>%
@@ -28,17 +27,17 @@ winrateRole <- function(role) {
   return (left_join(blue, red))
 }
 
+# This function computes which of the two players has a higher win rate on the blue side.
 higherBlueWinrate <- function(player1, player2, role) {
   players <- c(player1, player2)
   role.data <- winrateRole(role)
   tmp <- role.data %>%
     filter(player == player1 | player == player2) %>%
     filter(winrate.blue == max(winrate.blue))
-  
-  
   return(tmp)
 }
 
+# This function computes which of the two players has a higher win rate on the red side.
 higherRedWinrate <- function(player1, player2, role) {
   players <- c(player1, player2)
   role.data <- winrateRole(role)
@@ -48,6 +47,8 @@ higherRedWinrate <- function(player1, player2, role) {
   return(tmp)
 }
 
+# This function makes a stacked bar plot of two selected players and their respective win rates on 
+# the red and blue sides.
 makePlot <- function(role, player1, player2) {
   tmp <- winrateRole(role)
   players <- c(player1, player2)
