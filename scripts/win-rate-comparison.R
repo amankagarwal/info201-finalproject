@@ -45,7 +45,20 @@ higherRedWinrate <- function(player1, player2, role) {
   tmp <- role.data %>%
     filter(player == player1 | player == player2) %>%
     filter(winrate.red == max(winrate.red))
-  
-  
   return(tmp)
 }
+
+makePlot <- function(role, player, player2) {
+  tmp <- winrateRole(role)
+  players <- c(player1, player2)
+  tmp <- tmp %>%
+    filter(player %in% players) %>%
+    select(Player = player, Blue = winrate.blue, Red = winrate.red)
+  
+  plot <- plot_ly(data = tmp, x = ~Player, y = ~Blue, type = 'bar', name = "Blue side") %>%
+    add_trace(y = ~Red, name = "Red side") %>%
+    layout(title = paste0(input$player1, " vs ", input$player2, " Winrate Comparison"),
+           yaxis = list(title = "Winrate"), barmode = 'stack', height = "600px")
+  return (plot)
+}
+
