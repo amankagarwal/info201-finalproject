@@ -19,16 +19,7 @@ shinyServer <- function(input, output) {
   
   # Generates the plot of two pro player's win rate on both the red side and the blue side.
   output$winrateplot <- renderPlotly({
-    tmp <- winrateRole(input$role)
-    players <- c(input$player1, input$player2)
-    tmp <- tmp %>%
-      filter(player %in% players) %>%
-      select(Player = player, Blue = winrate.blue, Red = winrate.red)
-    
-    plot_ly(data = tmp, x = ~Player, y = ~Blue, type = 'bar', name = "Blue side") %>%
-      add_trace(y = ~Red, name = "Red side") %>%
-      layout(title = paste0(input$player1, " vs ", input$player2, " Winrate Comparison"),
-             yaxis = list(title = "Winrate"), barmode = 'stack', height = "600px")
+    makePlot(input$role, input$player1, input$player2)
   })
   
   output$winratesummary <- renderText({
