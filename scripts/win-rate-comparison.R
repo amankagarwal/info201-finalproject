@@ -27,3 +27,23 @@ winrateRole <- function(role) {
     select(player = red.role, winrate.red)
   return (left_join(blue, red))
 }
+
+higherBlueWinrate <- function(player1, player2, role) {
+  players <- c(player1, player2)
+  role.data <- winrateRole(role)
+  tmp <- role.data %>%
+    filter(player == player1 | player == player2) %>%
+    filter(winrate.blue == max(winrate.blue))
+  
+  
+  return(tmp)
+}
+
+higherRedWinrate <- function(player1, player2, role) {
+  players <- c(player1, player2)
+  role.data <- winrateRole(role)
+  tmp <- role.data %>%
+    filter(player == player1 | player == player2) %>%
+    filter(winrate.red == max(winrate.red))
+  return(tmp)
+}
