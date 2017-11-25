@@ -33,13 +33,14 @@ shinyServer <- function(input, output) {
   
   output$winratesummary <- renderText({
     
+    higher.blue <- higherBlueWinrate(input$player1, input$player2, input$role)
+    higher.red <- higherRedWinrate(input$player1, input$player2, input$role)
     
-    
-    return(paste("Among the two player in the", input$role, "lane,", highest.combined.winrate$player, "had the highest combined winrate for the
-                 blue and red side.", highest.combined.winrate$player, "had a winrate of", highest.combined.winrate$winrate.blue,
-                 "% at the blue side and", highest.combined.winrate$winrate.red, "% at the red side. In general, from the plot, we
-                 can also observe that the winrate at the blue side is usually higher. This supports the fact that most teams prefer
-                 to play at the blue side, mainly because it gives the jungler a better chance to help out his teammates." ))
+    return(paste0("Among the two players in the ", input$role, " lane, ", higher.blue$player, " had the higher winrate, ",
+                higher.blue$winrate.blue,"%, on the blue side, and ",higher.red$player, " had a higher winrate, ",higher.red$winrate.red,
+                "% on the red side.", " In general, from the plot, we can also observe that the winrate at the blue
+                side is usually higher. This supports the fact that most teams prefer
+                to play at the blue side, mainly because it gives the jungler a better chance to help out his teammates." ))
   })
 }
 
