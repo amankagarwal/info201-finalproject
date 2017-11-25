@@ -30,7 +30,7 @@ shinyServer <- function(input, output) {
     return(paste0("Among the two players in the ", input$role, " lane, ", higher.blue$player, " had the higher winrate, ",
                 higher.blue$winrate.blue,"%, on the blue side, and ",higher.red$player, " had a higher winrate, ",higher.red$winrate.red,
                 "% on the red side.", " In general, from the plot, we can also observe that the winrate at the blue
-                side is usually higher. This supports the fact that most teams prefer
+                side is usually higher compared to the red side. This supports the fact that most teams prefer
                 to play at the blue side, mainly because it gives the jungler a better chance to help out his teammates." ))
   })
 }
