@@ -22,7 +22,7 @@ shinyUI <- fluidPage(title = "League Analysis",
                      br(),
                      textOutput("winratesummary"),
                      br(),
-                     h1(strong("Comparing Winrates")),
+                     h1(strong("Comparing Win Rates")),
                      br(),
                      plotlyOutput("winrateplot")
                      
