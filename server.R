@@ -22,6 +22,7 @@ shinyServer <- function(input, output) {
     makePlot(input$role, input$player1, input$player2)
   })
   
+  # Generates the summary paragraph
   output$winratesummary <- renderText({
     
     higher.blue <- higherBlueWinrate(input$player1, input$player2, input$role)
