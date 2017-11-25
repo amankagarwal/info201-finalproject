@@ -1,4 +1,3 @@
-library("shiny")
 library("dplyr")
 library("plotly")
 source("scripts/win-rate-comparison.R")
@@ -28,7 +27,7 @@ shinyServer <- function(input, output) {
     plot_ly(data = tmp, x = ~Player, y = ~Blue, type = 'bar', name = "Blue side") %>%
       add_trace(y = ~Red, name = "Red side") %>%
       layout(title = paste0(input$player1, " vs ", input$player2, " Winrate Comparison"),
-             yaxis = list(title = "Winrate"), barmode = 'stack')
+             yaxis = list(title = "Winrate"), barmode = 'stack', height = "600px")
   })
 }
 
