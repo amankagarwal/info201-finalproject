@@ -57,7 +57,7 @@ makePlot <- function(role, player1, player2) {
   
   plot <- plot_ly(data = tmp, x = ~Player, y = ~Blue, type = 'bar', name = "Blue side") %>%
     add_trace(y = ~Red, name = "Red side") %>%
-    layout(title = paste0(input$player1, " vs ", input$player2, " Winrate Comparison"),
+    layout(title = paste0(player1, " vs ", player2, " Winrate Comparison"),
            yaxis = list(title = "Winrate"), barmode = 'stack', height = "600px")
   return (plot)
 }
