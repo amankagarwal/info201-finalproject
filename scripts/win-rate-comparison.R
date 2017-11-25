@@ -1,6 +1,5 @@
 library("dplyr")
 library("stringr")
-library("plotly")
 
 # This data has all player names (lane-wise), and whether the team has won or not. 
 league.data <- read.csv("data/_LeagueofLegends.csv", stringsAsFactors = FALSE)
