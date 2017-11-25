@@ -14,3 +14,5 @@ Dividing work:
 Each one of us should work on **atleast** one tab, therefore must create one R file which deals with one of the issues. I (Aman) will take care of the main logic files (ui.R and server.R), so don't worry about that. Currently, the issues are a bit vague, so Sid and I will decide exactly what each tab will be displaying.
 
 If your R files require to access some other tab's data, you'll need to pull from the master branch (granted that the person working on the other tab has merged his branch. There might be some other way to do this as well). In general, to keep things simpler, avoid using data from other R files. But make sure you don't make the code redundant just to avoid it.
+
+You can view our latest app here: https://amanagarwal.shinyapps.io/info201-finalproject/

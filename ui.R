@@ -18,7 +18,14 @@ shinyUI <- fluidPage(title = "League Analysis", theme = shinytheme("spacelab"),
                      uiOutput("seconddropdown")
                    ),
                    mainPanel(
+                     h1(strong("Summary")),
+                     br(),
+                     textOutput("winratesummary"),
+                     br(),
+                     h1(strong("Comparing Winrates")),
+                     br(),
                      plotlyOutput("winrateplot")
+                     
                    )
                  )
                ), 
