@@ -27,23 +27,13 @@ winrateRole <- function(role) {
   return (left_join(blue, red))
 }
 
-# This function computes which of the two players has a higher win rate on the blue side.
-higherBlueWinrate <- function(player1, player2, role) {
-  players <- c(player1, player2)
+# This function computes which of the two players has a higher win rate on the blue or red side.
+higherWinrate <- function(player1, player2, role, side) {
   role.data <- winrateRole(role)
+  side <- paste0("winrate.", side)
   tmp <- role.data %>%
     filter(player == player1 | player == player2) %>%
-    filter(winrate.blue == max(winrate.blue))
-  return(tmp)
-}
-
-# This function computes which of the two players has a higher win rate on the red side.
-higherRedWinrate <- function(player1, player2, role) {
-  players <- c(player1, player2)
-  role.data <- winrateRole(role)
-  tmp <- role.data %>%
-    filter(player == player1 | player == player2) %>%
-    filter(winrate.red == max(winrate.red))
+    filter(eval(parse(text = side)) == max(eval(parse(text = side))))
   return(tmp)
 }
 
