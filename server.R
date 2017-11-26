@@ -25,8 +25,8 @@ shinyServer <- function(input, output) {
   # Generates the summary paragraph
   output$winratesummary <- renderText({
     
-    higher.blue <- higherBlueWinrate(input$player1, input$player2, input$role)
-    higher.red <- higherRedWinrate(input$player1, input$player2, input$role)
+    higher.blue <- higherWinrate(input$player1, input$player2, input$role, "blue")
+    higher.red <- higherWinrate(input$player1, input$player2, input$role, "red")
     
     return(paste0("Among the two players in the ", input$role, " lane, ", higher.blue$player, " had the higher winrate, ",
                 higher.blue$winrate.blue,"%, on the blue side, and ",higher.red$player, " had a higher winrate, ",higher.red$winrate.red,
