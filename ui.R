@@ -18,11 +18,6 @@ shinyUI <- fluidPage(title = "League Analysis",
                      uiOutput("seconddropdown")
                    ),
                    mainPanel(
-                     h1(strong("Summary")),
-                     br(),
-                     # Need to fix this summary part. Actually, fuck summary. Add another plot, like a kda plot.
-                     textOutput("winratesummary"),
-                     br(),
                      h1(strong("Comparing Win Rates")),
                      br(),
                      plotlyOutput("winrateplot")

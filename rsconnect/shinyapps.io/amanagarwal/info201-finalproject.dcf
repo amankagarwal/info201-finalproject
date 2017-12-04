@@ -5,8 +5,8 @@ account: amanagarwal
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 239542
-bundleId: 1096253
+bundleId: 1113409
 url: https://amanagarwal.shinyapps.io/info201-finalproject/
-when: 1511651415.954
+when: 1512368053.47794
 asMultiple: FALSE
 asStatic: FALSE
