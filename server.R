@@ -1,21 +1,39 @@
 library("dplyr")
 library("plotly")
 source("scripts/win-rate-comparison.R")
-shinyServer <- function(input, output) {
+shinyServer <- function(input, output, session) {
   
   # Creates the first drop down menu through which the user can select the first player.
-  output$firstdropdown <- renderUI({
-    selectizeInput("player1", label = "Choose Player 1:", choices = winrateRole(input$role)$player,
-                   selected = NULL, multiple = FALSE, options = NULL)
+  current_selection <- reactiveVal(NULL)
+  observeEvent(input$player2, {
+    current_selection(input$player2)
   })
   
-  # Creates the second drop down menu. User cannot select the same player he/she select as the first player.
-  output$seconddropdown <- renderUI({
+  observeEvent({
+    input$player1
+  },{
     all.choices <- winrateRole(input$role)$player
     without.player1 <- all.choices[which(all.choices != input$player1)]
-    selectizeInput("player2", label = "Choose Player 2:", choices = without.player1,
-                   selected = NULL, multiple = FALSE, options = NULL)
+    updateSelectizeInput(
+      inputId = "player2",
+      session = session,
+      choices = without.player1
+    )
+  },
+  ignoreInit = FALSE
+  )
+  output$firstdropdown <- renderUI({ 
+    selectizeInput("player1", label = "Choose Player 1:",
+                   choices = winrateRole(input$role)$player, selected = NULL,
+                   multiple = FALSE, options = NULL) 
   })
+  # Creates the second drop down menu. User cannot select the same player he/she select as the first player. 
+  output$seconddropdown <- renderUI({ 
+    selectizeInput("player2", label = "Choose Player 2:",
+                   choices = winrateRole(input$role)$player, selected = NULL,
+                   multiple = FALSE, options = NULL)
+  })
+    
   
   # Generates the plot of two pro player's win rate on both the red side and the blue side.
   output$winrateplot <- renderPlotly({
