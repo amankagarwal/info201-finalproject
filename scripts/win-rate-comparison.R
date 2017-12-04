@@ -27,7 +27,6 @@ winrateRole <- function(role) {
   return (left_join(blue, red))
 }
 
-
 # This function makes a stacked bar plot of two selected players and their respective win rates on 
 # the red and blue sides.
 makePlot <- function(role, player1, player2) {
@@ -37,10 +36,9 @@ makePlot <- function(role, player1, player2) {
     filter(player %in% players) %>%
     select(Player = player, Blue = winrate.blue, Red = winrate.red)
   
-  plot <- plot_ly(data = tmp, x = ~Player, y = ~Blue, type = 'bar', name = "Blue side") %>%
+  plot <- plot_ly(data = tmp, x = ~Player, y = ~Blue, type = 'bar', name = "Blue side", height = "600px") %>%
     add_trace(y = ~Red, name = "Red side") %>%
     layout(title = paste0(player1, " vs ", player2, " Winrate Comparison"),
-           yaxis = list(title = "Winrate"), barmode = 'stack', height = "600px")
+           yaxis = list(title = "Winrate"), barmode = 'stack')
   return (plot)
 }
-
