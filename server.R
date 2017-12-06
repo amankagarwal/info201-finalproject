@@ -52,7 +52,7 @@ shinyServer <- function(input, output) {
   })
   
   output$p2champplot <- renderPlotly({
-    playerRatePlot(input$role, input$player2)
+    playRatePlot(input$role, input$player2)
   })
   
   # Generates a correlation matrix plot of competitive games.
@@ -79,5 +79,17 @@ shinyServer <- function(input, output) {
   
   output$corrconclusion <- renderText({
     corrConclusion()
+  })
+  
+  output$playeroverview <- renderText({
+    playerTabOverview()
+  })
+  
+  output$winratedesc <- renderText({
+    winratePlotDesc()
+  })
+  
+  output$playratedesc <- renderText({
+    playratePlotDesc()
   })
 }
