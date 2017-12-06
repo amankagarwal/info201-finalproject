@@ -4,9 +4,9 @@ library(plotly)
 # This script will analyze champions and what their ban rate is every year
 
 # This contains all the match history and other such data
-match.data <- read.csv("../data/_LeagueofLegends.csv", stringsAsFactors = FALSE)
+match.data <- read.csv("data/_LeagueofLegends.csv", stringsAsFactors = FALSE)
 # This contains the banned champions on each game
-ban.data <- read.csv("../data/banValues.csv", stringsAsFactors = FALSE)
+ban.data <- read.csv("data/banValues.csv", stringsAsFactors = FALSE)
 combined.data <- left_join(ban.data, match.data, by = "MatchHistory")
 
 # Takes in a champion and year, then returns the ban rate of that champion that year

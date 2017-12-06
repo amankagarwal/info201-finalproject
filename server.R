@@ -19,14 +19,15 @@ shinyServer <- function(input, output) {
   
   # Creates the third dropdown menu for champion 1
   output$thirddropdown<- renderUI({
-    selectizeInput("champ1", label = "Choose Champion 1:", choices = championRole(input$role),
+    selectizeInput("champ1", label = "Choose Champion 1:", choices = championRole(input$role1),
                    selected = NULL, multiple = FALSE, options = NULL)
   })
   
   # Creates the fourth dropdown menu for champion 1
   output$fourthdropdown <- renderUI({
-    selectizeInput("champ2", label = "Choose Champion 2:", choices = championRole(input$role),
-                   selected = NULL, multiple = FALSE, options = NULL)
+    choice <- championRole(input$role1)
+    selectizeInput("champ2", label = "Choose Champion 2:", choices = choice,
+                   selected = choice[[2]], multiple = FALSE, options = NULL)
   })
   
   # Generates the winrate plot of the 2 champions based on their roles
