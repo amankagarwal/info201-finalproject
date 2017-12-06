@@ -91,6 +91,10 @@ winratePlotDesc <- function() {
          the win-rates for each player on the basis of the side they play on- blue or red.")
 }
 
+winratePlotConc <- function(){
+  return("Generally, we can see a trend that the win-rate on the blue side is higher than the win-rate on the red side. This supports
+         the fact that most teams opt to play on the blue side when given the option.")
+}
 playratePlotDesc <- function() {
-  return("Write description for the second plot as well.")
+  return("The two plots below display the number of games each player has played on respective champions between 2015 and 2017.")
 }
