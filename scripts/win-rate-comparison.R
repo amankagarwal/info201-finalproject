@@ -48,7 +48,7 @@ champPlayRate <- function(role) {
 
 playRatePlot <- function(role, inputplayer) {
 
-  tmp <- champPlayRate("Middle")
+  tmp <- champPlayRate(role)
   tmp <- tmp %>%
     filter(player == inputplayer) %>%
     select(Player = player, Champion = champion, p1 = games.played)
