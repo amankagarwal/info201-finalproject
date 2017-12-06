@@ -5,7 +5,7 @@ shinyUI <- fluidPage(title = "League Analysis",
                      
              navbarPage(strong("League of Legends"),
                tabPanel("Overview"),
-               tabPanel("Player Win Rates",
+               tabPanel("Player Analysis",
                  sidebarLayout(
                    sidebarPanel(
                      selectInput(inputId = "role",
@@ -18,7 +18,6 @@ shinyUI <- fluidPage(title = "League Analysis",
                      uiOutput("seconddropdown")
                    ),
                    mainPanel(
-                     h1(strong("Comparing Win Rates")),
                      br(),
                      plotlyOutput("winrateplot")
                      
@@ -45,7 +44,8 @@ shinyUI <- fluidPage(title = "League Analysis",
                           )
                         )
                ),
-               tabPanel("Sid&Aman"),
+               tabPanel("TSM"),
+               tabPanel("Correlation"),
                tabPanel("Contact us- Mahir")
              )
 )
