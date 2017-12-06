@@ -2,6 +2,7 @@ library("dplyr")
 library("plotly")
 source("scripts/win-rate-comparison.R")
 source("scripts/championAnalysis.R")
+source("scripts/correlation.R")
 shinyServer <- function(input, output) {
   
   # Creates the first drop down menu through which the user can select the first player.
@@ -43,5 +44,31 @@ shinyServer <- function(input, output) {
   # Generates the plot of two pro player's win rate on both the red side and the blue side.
   output$winrateplot <- renderPlotly({
     makePlot(input$role, input$player1, input$player2)
+  })
+  
+  # Generates a correlation matrix plot of competitive games.
+  output$compplot <- renderPlot({
+    compPlot()
+  })
+  
+  # Generates a correlation matrix plot of non-competitive games.
+  output$noncompplot <- renderPlot({
+    nonCompPlot()
+  })
+  
+  output$corrbrief <- renderText({
+    correlationBrief()
+  })
+  
+  output$textnoncomp <- renderText({
+    textNonComp()
+  })
+  
+  output$textcomp <- renderText({
+    textComp()
+  })
+  
+  output$corrconclusion <- renderText({
+    corrConclusion()
   })
 }

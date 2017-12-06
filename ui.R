@@ -45,7 +45,25 @@ shinyUI <- fluidPage(title = "LoL Analysis",
                         )
                ),
                tabPanel("TSM"),
-               tabPanel("Correlation"),
+               tabPanel("How to win more?",
+                        mainPanel(
+                          h3(strong("Overview")),
+                          textOutput("corrbrief"),
+                          br(),
+                          h3(strong("Non-Competitive Games")),
+                          plotOutput("noncompplot", height = 500),
+                          br(),
+                          textOutput("textnoncomp"),
+                          br(),
+                          h3(strong("Competitive Games")),
+                          plotOutput("compplot", height = 500),
+                          br(),
+                          textOutput("textcomp"),
+                          br(),
+                          h3(strong("Conclusion")),
+                          textOutput("corrconclusion"),
+                          br()
+                        )),
                tabPanel("Contact us- Mahir")
              )
 )
