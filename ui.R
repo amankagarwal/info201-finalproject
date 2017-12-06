@@ -28,13 +28,13 @@ shinyUI <- fluidPage(title = "LoL Analysis",
                      br(),
                      br(),
                      br(),
+                     textOutput("winrateconc"),
+                     br(),
                      h3(strong("Player's Champion Pools")),
                      textOutput("playratedesc"),
                      br(),
                      plotlyOutput("p1champplot"),
-                     br(),
                      plotlyOutput("p2champplot")
-                     
                    )
                  )
                ), 
