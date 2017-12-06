@@ -19,7 +19,15 @@ shinyUI <- fluidPage(title = "LoL Analysis",
                    ),
                    mainPanel(
                      br(),
-                     plotlyOutput("winrateplot")
+                     plotlyOutput("winrateplot"),
+                     br(),
+                     br(),
+                     br(),
+                     plotlyOutput("p1champplot"),
+                     br(),
+                     br(),
+                     br(),
+                     plotly("p2champplot")
                      
                    )
                  )

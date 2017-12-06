@@ -43,7 +43,16 @@ shinyServer <- function(input, output) {
   
   # Generates the plot of two pro player's win rate on both the red side and the blue side.
   output$winrateplot <- renderPlotly({
-    makePlot(input$role, input$player1, input$player2)
+    winratePlot(input$role, input$player1, input$player2)
+  })
+  
+  # Generate a champion pool line plot for the player 1 selected
+  output$p1champplot <- renderPlotly({
+    playRatePlot(input$role, input$player1)
+  })
+  
+  output$p2champplot <- renderPlotly({
+    playerRatePlot(input$role, input$player2)
   })
   
   # Generates a correlation matrix plot of competitive games.
