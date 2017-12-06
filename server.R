@@ -45,4 +45,3 @@ shinyServer <- function(input, output) {
     makePlot(input$role, input$player1, input$player2)
   })
 }
-

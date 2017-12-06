@@ -1,7 +1,7 @@
 library("shiny")
 library("plotly")
 
-shinyUI <- fluidPage(title = "League Analysis",
+shinyUI <- fluidPage(title = "LoL Analysis",
                      
              navbarPage(strong("League of Legends"),
                tabPanel("Overview"),
