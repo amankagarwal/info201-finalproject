@@ -25,7 +25,26 @@ shinyUI <- fluidPage(title = "League Analysis",
                    )
                  )
                ), 
-               tabPanel("Sid"),
+               tabPanel("Champion Analysis",
+                    sidebarLayout(
+                      sidebarPanel(
+                        selectInput(inputId = "role1",
+                                    label = "Choose a role:",
+                                    choice = c("Top", "Jungle","Middle", "ADC", "Support")),
+                            br(),
+                            uiOutput("thirddropdown"),
+                            br(),
+                            uiOutput("fourthdropdown")
+                          ),
+                          
+                          # Show a plot of the generated distribution
+                          mainPanel(
+                            plotlyOutput("winplot"),
+                            br(),
+                            plotlyOutput("banplot")
+                          )
+                        )
+               ),
                tabPanel("Sid&Aman"),
                tabPanel("Contact us- Mahir")
              )
