@@ -5,7 +5,7 @@ League of Legends is a fast-paced, competitive online game that involves both of
 
 ![](../images/overview.png)
 
-## Our objectives 
+## Our Objectives 
 In this project, we use the dataset which has data for all the e-sports competitive League of Legends games from 2015 to 2017 to find different trends, and compare how different pro-players have performed at the competitive level. The goal is to learn how games are influenced, what champions are banned/played, and what matters most when it comes to winning the game.
 
 ## So what is League of Legends, and how does it work?
