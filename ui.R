@@ -7,9 +7,13 @@ shinyUI <- fluidPage(title = "LoL Analysis", theme = shinytheme('sandstone'),
             tags$head(
             tags$link(rel = "stylesheet", type = "text/css", href = "style.css")
             ),
-                     
+            
              navbarPage("League of Legends",
-               tabPanel("Project Overview"),
+                tabPanel("Project Overview",
+                  fluidRow(
+                    includeMarkdown("scripts/Overview.Rmd")
+                  )
+                ),
                tabPanel("Player Analysis",
                  sidebarLayout(
                    sidebarPanel(
@@ -25,7 +29,7 @@ shinyUI <- fluidPage(title = "LoL Analysis", theme = shinytheme('sandstone'),
                    mainPanel(
                      h2("Overview"),
                      p("In this tab, we calculate the win-rates of all players who have played competitive league of legends games between
-                      2015 and 2017. From the dropdown menus on the left, the user can select the two players whose's win-rate he/she wants
+                      2015 and 2017. From the dropdown menus on the left, the user can select the two players whose win-rate he/she wants
                       to compare. Also, we compare the champions the selected players have played on the basis of the number
                       of games played on each champion."),
                      br(),
@@ -63,21 +67,36 @@ shinyUI <- fluidPage(title = "LoL Analysis", theme = shinytheme('sandstone'),
                           
                           # Show a plot of the generated distribution
                           mainPanel(
+                            h2("Overview"),
+                            p("League of legends is game that is very much dependent on a player's skill, but at the
+                              same time, the champions one picks matter ALOT. Most champions can play in one role(Top, Mid, Jungle, ADC and Support)
+                              Meanwhile, some champions can be played in multiple roles. In this panel, we compare 2 champions with respect
+                              to their win rates and ban rates. The champions picked will define the flow and pace of the game. Some champions
+                              tend to play extremely aggressive and upclose whereas some tend to scale better and deal
+                              damage from a distance. What makes professional esports and their champion selections interesting is the banning
+                              champions phase at the beginning of the game. Each team gets to ban 5 champions and pick 5 champions. Studying the
+                              ban rates and win rates gives us a general idea of which champions are currently very good or versatile"),
+                            br(),
+                            h2("Win Rates Comparison"),
+                            p("The plot below compares the win rates of the 2 champions selected from the dropdown menu :"),
+                            br(),
                             plotlyOutput("winplot"),
+                            br(),
+                            h2("Ban Rates Comparison"),
+                            p("The plot below compares the win rates of the 2 champions selected from the dropdown menu :"),
                             br(),
                             plotlyOutput("banplot")
                           )
                         )
                ),
                tabPanel("How to win more games?",
-                        mainPanel(
+                        fluidRow(
                           h2("Overview"),
                           p("We plan to find what objectives affect the outcome of the game the most. Also, we use correlation matrices to compare
                           the different correlations and try to know the difference between a competitive game and a non-competitive game."),
                           br(),
                           h2("Non-Competitive Games"),
                           plotOutput("noncompplot"),
-                          br(),
                           p("From this plot, we can observe that there is decent correlation between winning the games and getting
                           objectives such as towers, and inhibitors. However, there is one interesting observation. The correlation
                           of winning a game and getting a baron is lower as compared to the correlation with getting Dragons. This
@@ -86,7 +105,6 @@ shinyUI <- fluidPage(title = "LoL Analysis", theme = shinytheme('sandstone'),
                           br(),
                           h2("Competitive Games"),
                           plotOutput("compplot"),
-                          br(),
                           p("Just like the correlation matrix plot for the non-competitive games, we can observe a strong correlation between winning
                           games and getting objectives such as towers and inhibitors. However, there is one major difference which we can observe-
                           the correlation between winning and getting baron is much higher, and similar to getting dragons. This is more consistent
@@ -102,7 +120,7 @@ shinyUI <- fluidPage(title = "LoL Analysis", theme = shinytheme('sandstone'),
                           br()
                         )),
                tabPanel("Sources/Contact Us",
-                        mainPanel(
+                        fluidRow(
                           h2("Reach Us"),
                           p("We are here to answer any questions you might have about our League of Legends application.
                             Reach out to us and we'll respond as soon as we can!
@@ -110,16 +128,16 @@ shinyUI <- fluidPage(title = "LoL Analysis", theme = shinytheme('sandstone'),
                           h2("Contact Information"),
                           h4(strong("E-mail")),
                           p("Aman Agarwal: aman28@uw.edu"),
-                          p("Siddhart Jadav: jadavs@uw.edu"),
+                          p("Siddharth Jadav: jadavs@uw.edu"),
                           p("Mahir Bathija: mahirb@uw.edu"),
                           br(),
                           h4(strong("Mobile")),
                           p("Aman Agarwal: +1 (206) 565-7896"),
-                          p("Siddhart Javav: +1 (206) 245-3623"),
+                          p("Siddharth Jadav: +1 (206) 245-3623"),
                           p("Mahir Bathija: +1 (206) 693-0757"),
                           h2("Resources"),
                           helpText(a("Competitive Games dataset", href="https://www.kaggle.com/chuckephron/leagueoflegends")),
-                          helpText(a("Non-Competitive Games dataset", href="https://www.kaggle.com/paololol/league-of-legends-ranked-matches"))
+                          helpText(a("Non-Competitive Games dataset", href="https://www.kaggle.com/datasnaek/league-of-legends/data"))
                           )
                )
              )

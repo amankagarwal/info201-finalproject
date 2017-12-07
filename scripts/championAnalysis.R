@@ -28,6 +28,7 @@ getBanRate <- function(champion, year) {
   return (year.data * 100 / total.games)
 }
 
+# plots ban rate of the 2 champions
 plotTheBanData <- function(champion1, champion2) {
   champTable <- dataNeeded(champion1, champion2, "", "Ban")
   p <- plot_ly(champTable, x = ~year, y = ~bans1, name = champion1,
@@ -40,6 +41,7 @@ plotTheBanData <- function(champion1, champion2) {
   return(p)
 }
 
+# Returns winrate of a particular champ in a specific role during a certain year
 getWinRate <- function(champion, role, year) {
   blue <- paste0("blue", role, "Champ")
   red <- paste0("red", role, "Champ")
@@ -52,6 +54,7 @@ getWinRate <- function(champion, role, year) {
   return (win.rate)
 }
 
+# plots the winrate of the 2 champions
 plotTheWinData <- function(champion1, champion2, role) {
   champTable <- dataNeeded(champion1, champion2, role, "Win")
   p <- plot_ly(champTable, x = ~year, y = ~wins1, name = champion1,
@@ -64,6 +67,7 @@ plotTheWinData <- function(champion1, champion2, role) {
   return(p)
 }
 
+# Returns the dataframe needed as per request of ban or win rates
 dataNeeded <- function(champion1, champion2, role, banOrWin) {
   if(banOrWin == "Ban") {
     bans1 <- c(getBanRate(champion1, "2015"), getBanRate(champion1, "2016"), getBanRate(champion1, "2017"))
@@ -78,6 +82,7 @@ dataNeeded <- function(champion1, champion2, role, banOrWin) {
   }
 }
 
+# Returns all champs in the given role
 championRole <- function(role) {
   blue.role <- paste0("blue", role, "Champ")
   blue.champs <- filter(match.data, Year != "2014") %>% 
