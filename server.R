@@ -2,6 +2,7 @@ library("dplyr")
 library("plotly")
 source("scripts/win-rate-comparison.R")
 source("scripts/championAnalysis.R")
+source("scripts/correlation.R")
 shinyServer <- function(input, output) {
   
   # Creates the first drop down menu through which the user can select the first player.
@@ -42,7 +43,66 @@ shinyServer <- function(input, output) {
   
   # Generates the plot of two pro player's win rate on both the red side and the blue side.
   output$winrateplot <- renderPlotly({
-    makePlot(input$role, input$player1, input$player2)
+    winratePlot(input$role, input$player1, input$player2)
+  })
+  
+  # Generate a champion pool line plot for the player 1 selected
+  output$p1champplot <- renderPlotly({
+    playRatePlot(input$role, input$player1)
+  })
+  
+  # Generate a champion pool plot for the player 2 selected
+  output$p2champplot <- renderPlotly({
+    playRatePlot(input$role, input$player2)
+  })
+  
+  # Generates a correlation matrix plot of competitive games.
+  output$compplot <- renderPlot({
+    compPlot()
+  })
+  
+  # Generates a correlation matrix plot of non-competitive games.
+  output$noncompplot <- renderPlot({
+    nonCompPlot()
+  })
+  
+  # Tab5 overview 
+  output$corrbrief <- renderText({
+    correlationBrief()
+  })
+  
+  # Non-competitive plot brief
+  output$textnoncomp <- renderText({
+    textNonComp()
+  })
+  
+  #Competititive plot brief
+  output$textcomp <- renderText({
+    textComp()
+  })
+  
+  # Tab5 conclusion.
+  output$corrconclusion <- renderText({
+    corrConclusion()
+  })
+  
+  # Tab2 overview.
+  output$playeroverview <- renderText({
+    playerTabOverview()
+  })
+  
+  # Winrate plot description.
+  output$winratedesc <- renderText({
+    winratePlotDesc()
+  })
+  
+  # Playrate plot description.
+  output$playratedesc <- renderText({
+    playratePlotDesc()
+  })
+  
+  # Winrate plot conclusion.
+  output$winrateconc <- renderText({
+    winratePlotConc()
   })
 }
-
