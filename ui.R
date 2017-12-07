@@ -1,10 +1,15 @@
 library("shiny")
 library("plotly")
+library("shinythemes")
 
-shinyUI <- fluidPage(title = "LoL Analysis",
+shinyUI <- fluidPage(title = "LoL Analysis", theme = shinytheme('sandstone'),
                      
-             navbarPage(strong("League of Legends"),
-               tabPanel("Overview"),
+            tags$head(
+            tags$link(rel = "stylesheet", type = "text/css", href = "style.css")
+            ),
+                     
+             navbarPage("League of Legends",
+               tabPanel("Project Overview"),
                tabPanel("Player Analysis",
                  sidebarLayout(
                    sidebarPanel(
@@ -18,10 +23,10 @@ shinyUI <- fluidPage(title = "LoL Analysis",
                      uiOutput("seconddropdown")
                    ),
                    mainPanel(
-                     h3(strong("Overview")),
+                     h2("Overview"),
                      textOutput("playeroverview"),
                      br(),
-                     h3(strong("Winrate Comparison")),
+                     h2("Winrate Comparison"),
                      textOutput("winratedesc"),
                      br(),
                      plotlyOutput("winrateplot"),
@@ -30,7 +35,7 @@ shinyUI <- fluidPage(title = "LoL Analysis",
                      br(),
                      textOutput("winrateconc"),
                      br(),
-                     h3(strong("Player's Champion Pools")),
+                     h2("Player's Champion Pools"),
                      textOutput("playratedesc"),
                      br(),
                      plotlyOutput("p1champplot"),
@@ -58,26 +63,25 @@ shinyUI <- fluidPage(title = "LoL Analysis",
                           )
                         )
                ),
-               tabPanel("TSM"),
-               tabPanel("How to win more?",
+               tabPanel("How to win more games?",
                         mainPanel(
-                          h3(strong("Overview")),
+                          h2("Overview"),
                           textOutput("corrbrief"),
                           br(),
-                          h3(strong("Non-Competitive Games")),
-                          plotOutput("noncompplot", height = 500),
+                          h2("Non-Competitive Games"),
+                          plotOutput("noncompplot"),
                           br(),
                           textOutput("textnoncomp"),
                           br(),
-                          h3(strong("Competitive Games")),
-                          plotOutput("compplot", height = 500),
+                          h2("Competitive Games"),
+                          plotOutput("compplot"),
                           br(),
                           textOutput("textcomp"),
                           br(),
-                          h3(strong("Conclusion")),
+                          h2("Conclusion"),
                           textOutput("corrconclusion"),
                           br()
                         )),
-               tabPanel("Contact us- Mahir")
+               tabPanel("Sources/Contact Us")
              )
 )
