@@ -80,15 +80,12 @@ dataNeeded <- function(champion1, champion2, role, banOrWin) {
 
 championRole <- function(role) {
   blue.role <- paste0("blue", role, "Champ")
-  blue.champs <- select(match.data, blue.role)
+  blue.champs <- filter(match.data, Year != "2014") %>% 
+                 select(blue.role) 
   red.role <- paste0("red", role, "Champ")
-  red.champs <-  select(match.data, red.role)
+  red.champs <-  filter(match.data, Year != "2014") %>% 
+                 select(red.role) 
   all.champs <- c(blue.champs[, 1], red.champs[, 1])
   champs <- unique(all.champs)
   return (champs)
-}
-
-getAllChampions <- function() {
-  all.champs <- c(championRole("Top"), championRole("Jungle"), championRole("Jungle"), championRole("ADC"), championRole("Support"))
-  return(unique(all.champs))
 }
