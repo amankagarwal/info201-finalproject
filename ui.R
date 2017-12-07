@@ -135,8 +135,12 @@ shinyUI <- fluidPage(title = "LoL Analysis", theme = shinytheme('sandstone'),
                           p("Aman Agarwal: +1 (206) 565-7896"),
                           p("Siddharth Jadav: +1 (206) 245-3623"),
                           p("Mahir Bathija: +1 (206) 693-0757"),
+                          br(),
+                          h4(strong("Summoner ID")),
+                          p("Aman Agarwal: seraastark"),
+                          p("Siddharth Jadav: sjadav"),
                           h2("Resources"),
-                          helpText(a("Competitive Games dataset", href="https://www.kaggle.com/chuckephron/leagueoflegends")),
+                          helpText(a("Competitive Games dataset", href="https://www.kaggle.com/chuckephron/leagueoflegends/data")),
                           helpText(a("Non-Competitive Games dataset", href="https://www.kaggle.com/datasnaek/league-of-legends/data"))
                           )
                )
