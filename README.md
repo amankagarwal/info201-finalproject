@@ -1,7 +1,7 @@
 # League of Legends Analysis
 
 ## An Overview of League of Legends
-League of Legends is a fast-paced, competitive online game that blends the speed and intensity of an RTS with RPG elements. Two teams of powerful champions, each with a unique design and playstyle, battle head-to-head across multiple battlefields and game modes. With an ever-expanding roster of champions, frequent updates and a thriving tournament scene, League of Legends offers endless replayability for players of every skill level. As of 2017, there are 119 million active online players every month spread across the world. League of Legends is also one of the largest eSports, with various annual tournaments taking place worldwide. In terms of eSports professional gaming as of June 2016, League of Legends has $29,203,916 USD in prize money, 4,083 Players, and 1,718 tournaments.  
+League of Legends is a fast-paced, competitive online game that involves both offensive and defensive plays. Two teams of powerful champions, each with a unique design and playstyle, battle head-to-head across multiple battlefields and game modes. With an ever-expanding roster of champions, frequent updates and a thriving tournament scene, League of Legends offers endless replayability for players of every skill level. As of 2017, there are 119 million active online players every month spread across the world. League of Legends is also one of the largest eSports, with various annual tournaments taking place worldwide. In terms of eSports professional gaming as of June 2016, League of Legends has $29,203,916 USD in prize money, 4,083 Players, and 1,718 tournaments.  
 
 
 ## Our objectives
