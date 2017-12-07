@@ -4,6 +4,7 @@ library("dplyr")
 data <- read.csv("data/games.csv", stringsAsFactors = FALSE)
 comp.data <- read.csv("data/_LeagueofLegends.csv", stringsAsFactors = FALSE)
 
+# To deal with the comma which is not present if the list has only one value or no value.
 comp.data <- data.frame(apply(comp.data,2,function(x) gsub(pattern = "\\[", "", x)), stringsAsFactors = F)
 comp.data <- data.frame(apply(comp.data,2,function(x) gsub(pattern = "\\]", "", x)), stringsAsFactors = F)
 
