@@ -44,6 +44,7 @@ shinyUI <- fluidPage(title = "LoL Analysis", theme = shinytheme('sandstone'),
                  )
                ), 
                tabPanel("Champion Analysis",
+                        
                     sidebarLayout(
                       sidebarPanel(
                         selectInput(inputId = "role1",
@@ -57,6 +58,10 @@ shinyUI <- fluidPage(title = "LoL Analysis", theme = shinytheme('sandstone'),
                           
                           # Show a plot of the generated distribution
                           mainPanel(
+                            tags$style(type="text/css",
+                                       ".shiny-output-error { visibility: hidden; }",
+                                       ".shiny-output-error:before { visibility: hidden; }"
+                            ),
                             plotlyOutput("winplot"),
                             br(),
                             plotlyOutput("banplot")

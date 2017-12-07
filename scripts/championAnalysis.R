@@ -14,10 +14,17 @@ getBanRate <- function(champion, year) {
   total.games <- combined.data %>% 
                  filter(Year == year) %>% 
                  nrow() / 2
-  year.data <- combined.data %>% 
-               filter(Year == year) %>% 
-               filter(ban_1 == champion | ban_2 == champion | ban_3 == champion | ban_4 == champion | ban_5 == champion) %>%
-               nrow()
+  if(year == "2017") {
+    year.data <- combined.data %>% 
+      filter(Year == year) %>% 
+      filter(ban_1 == champion | ban_2 == champion | ban_3 == champion | ban_4 == champion | ban_5 == champion) %>%
+      nrow()
+  } else {
+    year.data <- combined.data %>% 
+      filter(Year == year) %>% 
+      filter(ban_1 == champion | ban_2 == champion | ban_3 == champion) %>%
+      nrow()
+  }
   return (year.data * 100 / total.games)
 }
 
