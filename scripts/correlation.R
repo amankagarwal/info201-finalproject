@@ -40,31 +40,3 @@ nonCompPlot <- function() {
   cor2 <- cor(cor2.data)
   return (corrplot.mixed(cor2))
 }
-
-correlationBrief <- function() {
-  return ("We plan to find what objectives affect the outcome of the game the most. Also, we use correlation matrices to compare
-          the different correlations and try to know the difference between a competitive game and a non-competitive game.")
-}
-textNonComp <- function() {
-  return("From this plot, we can observe that there is decent correlation between winning the games and getting
-         objectives such as towers, and inhibitors. However, there is one interesting observation. The correlation
-         of winning a game and getting a baron is lower as compared to the correlation with getting Dragons. This
-         is indeed surprising because baron is the strongest objective in the game, and usually can turn the tide towards
-         a team.")
-}
-
-textComp <- function() {
-  return ("Just like the correlation matrix plot for the non-competitive games, we can observe a strong correlation between winning
-          games and getting objectives such as towers and inhibitors. However, there is one major difference which we can observe-
-          the correlation between winning and getting baron is much higher, and similar to getting dragons. This is more consistent
-          with the logic of the game. Moreover, in competitive games all teams and players play much more seriously and focus to get
-          objectives in the game to win. Once a team gets baron, which is the strongest objective in the game, it's less likely that
-          they will throw away the lead, thus the higher correlation.")
-}
-
-corrConclusion <- function() {
-  return("From this analysis, we can conclude that non-competitive games mostly depend on getting objectives such as turrets and
-         inhibitors. Barons and dragons don't have as big an influence as these objectives have, so don't lose hope if you lose
-         a baron or drake! In order to win more games, you should concentrate in getting turrets, and pushing lanes in order to get
-         inhibitors!")
-}

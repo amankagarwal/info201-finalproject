@@ -78,23 +78,3 @@ winratePlot <- function(role, player1, player2) {
            yaxis = list(title = "Winrate"), barmode = 'stack')
   return (plot)
 }
-
-playerTabOverview <- function() {
-  return ("In this tab, we calculate the win-rates of all players who have played competitive league of legends games between
-          2015 and 2017. From the dropdown menus on the left, the user can select the two players whose's win-rate he/she wants
-          to compare. Also, we compare the champions the selected players have played on the basis of the number
-          of games played on each champion.")
-}
-
-winratePlotDesc <- function() {
-  return("This plot compares the win-rates for the two selected players. Also, the use of a stacked bar plot enables us to compare
-         the win-rates for each player on the basis of the side they play on- blue or red.")
-}
-
-winratePlotConc <- function(){
-  return("Generally, we can see a trend that the win-rate on the blue side is higher than the win-rate on the red side. This supports
-         the fact that most teams opt to play on the blue side when given the option.")
-}
-playratePlotDesc <- function() {
-  return("The two plots below display the number of games each player has played on respective champions between 2015 and 2017.")
-}

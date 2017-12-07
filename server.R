@@ -65,44 +65,4 @@ shinyServer <- function(input, output) {
   output$noncompplot <- renderPlot({
     nonCompPlot()
   })
-  
-  # Tab5 overview 
-  output$corrbrief <- renderText({
-    correlationBrief()
-  })
-  
-  # Non-competitive plot brief
-  output$textnoncomp <- renderText({
-    textNonComp()
-  })
-  
-  #Competititive plot brief
-  output$textcomp <- renderText({
-    textComp()
-  })
-  
-  # Tab5 conclusion.
-  output$corrconclusion <- renderText({
-    corrConclusion()
-  })
-  
-  # Tab2 overview.
-  output$playeroverview <- renderText({
-    playerTabOverview()
-  })
-  
-  # Winrate plot description.
-  output$winratedesc <- renderText({
-    winratePlotDesc()
-  })
-  
-  # Playrate plot description.
-  output$playratedesc <- renderText({
-    playratePlotDesc()
-  })
-  
-  # Winrate plot conclusion.
-  output$winrateconc <- renderText({
-    winratePlotConc()
-  })
 }
