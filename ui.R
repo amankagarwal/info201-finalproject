@@ -101,6 +101,26 @@ shinyUI <- fluidPage(title = "LoL Analysis", theme = shinytheme('sandstone'),
                           inhibitors!"),
                           br()
                         )),
-               tabPanel("Sources/Contact Us")
+               tabPanel("Sources/Contact Us",
+                        mainPanel(
+                          h2("Reach Us"),
+                          p("We are here to answer any questions you might have about our League of Legends application.
+                            Reach out to us and we'll respond as soon as we can!
+                            Please use the contact information provided below to reach us."),
+                          h2("Contact Information"),
+                          h4("E-mail"),
+                          p("Aman Agarwal: aman28@uw.edu"),
+                          p("Siddhart Jadav: jadavs@uw.edu"),
+                          p("Mahir Bathija: mahirb@uw.edu"),
+                          br(),
+                          h4("Mobile"),
+                          p("Aman Agarwal: +1 (206) 565-7896"),
+                          p("Siddhart Javav: +1 (206) 245-3623"),
+                          p("Mahir Bathija: +1 (206) 693-0757"),
+                          h2("Resources"),
+                          helpText(a("Competitive Games dataset", href="https://www.kaggle.com/chuckephron/leagueoflegends")),
+                          helpText(a("Non-Competitive Games dataset", href="https://www.kaggle.com/paololol/league-of-legends-ranked-matches"))
+                          )
+               )
              )
 )
